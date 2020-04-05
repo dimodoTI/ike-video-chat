@@ -1,0 +1,179 @@
+@font-face {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/Nunito-Regular.ttf') format('ttf');
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2vmin;
+
+}
+
+
+@media all and (max-width: 800px) {
+  html {
+    font-size: 1.5vmin;
+  }
+}
+
+@media all and (max-width: 600px) {
+  html {
+    font-size: 4vmin;
+  }
+
+  #btnPantalla {
+    display: none
+  }
+}
+
+
+:root {
+  --fondo: url(../assets/image/fondo.png);
+
+}
+
+html,
+body {
+  background-color: "#F3F3F3";
+  background-image: var(--fondo);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70vh;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  overflow-y: auto;
+  --shadow-elevation-4-box: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-elevation-4-z: 400;
+}
+
+
+
+
+video {
+  height: 100%;
+  width: 100%;
+}
+
+#videos {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+#video-local {
+  position: absolute;
+  display: grid;
+  height: 20vh;
+  width: 13.2vw;
+  right: 0;
+  z-index: 100;
+}
+
+#video-remoto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+}
+
+.vc {
+  display: grid;
+  position: relative;
+  background-color: rgb(00, 184, 184);
+  min-height: 25vh;
+
+  border: 1px solid black;
+}
+
+#btnPantalla {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: coral;
+  color: white;
+  padding: .5rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-elevation-4-box);
+  outline: none;
+
+
+}
+
+#btnPantalla .contenido {
+  display: grid;
+  grid-gap: .5rem;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+#btnPantalla:hover {
+  background-color: darksalmon;
+}
+
+.titulo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0 1rem 0.3rem 1rem;
+  border-radius: 0 0 20px 20px;
+  font-weight: bold;
+}
+
+#anfitrion {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1rem 1rem 1rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  font-size: 2.5vw;
+  align-items: center;
+  text-align: center;
+}
+
+#btnCerrar {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: green;
+  border-radius: 50%;
+  padding: 1rem;
+  color: white;
+  stroke: white;
+  fill: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-elevation-4-box);
+  outline: none;
+}
+
+#btnCerrar[hablando] {
+  background-color: red !important
+}
+
+#btnCerrar[hablando] #atender {
+  display: none
+}
+
+#btnCerrar:not([hablando]) #colgar {
+  display: none;
+}
+
+.blink {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
